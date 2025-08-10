@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cyberpunk College Student Vibes */
+
+@layer base {
+  :root {
+    /* Dark Turquoise-Focused Color Palette */
+    --background: 215 25% 4%;
+    --foreground: 180 100% 90%;
+
+    --card: 215 25% 6%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 215 25% 6%;
+    --popover-foreground: 180 100% 90%;
+
+    /* Turquoise Primary */
+    --primary: 180 100% 50%;
+    --primary-light: 180 100% 65%;
+    --primary-dark: 180 100% 35%;
+    --primary-foreground: 215 25% 4%;
+
+    /* Bright Turquoise Accent */
+    --accent: 180 80% 60%;
+    --accent-light: 180 90% 75%;
+    --accent-foreground: 215 25% 4%;
+
+    /* Dark Grays */
+    --secondary: 215 25% 8%;
+    --secondary-foreground: 180 100% 90%;
+
+    --muted: 215 25% 6%;
+    --muted-foreground: 180 60% 70%;
+
+    --border: 180 40% 25%;
+    --input: 215 25% 8%;
+    --ring: 180 100% 50%;
+
+    /* Dark Turquoise Gradients */
+    --gradient-turquoise: linear-gradient(135deg, hsl(180 100% 35%) 0%, hsl(180 100% 65%) 100%);
+    --gradient-neon: linear-gradient(135deg, hsl(180 80% 60%) 0%, hsl(200 100% 70%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(45 100% 60%) 0%, hsl(180 100% 60%) 50%, hsl(240 100% 70%) 100%);
+    --gradient-ocean: linear-gradient(135deg, hsl(180 100% 40%) 0%, hsl(200 100% 60%) 100%);
+    --gradient-cyber: linear-gradient(135deg, hsl(180 100% 50%) 0%, hsl(190 100% 60%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(215 25% 4%) 0%, hsl(215 25% 8%) 100%);
+
+    /* Enhanced Turquoise Glows */
+    --glow-turquoise: 0 0 25px hsl(180 100% 50% / 0.8);
+    --glow-neon: 0 0 25px hsl(180 80% 60% / 0.7);
+    --glow-cyber: 0 0 35px hsl(180 100% 50% / 0.6);
+
+    --radius: 0.5rem;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Smooth Transitions */
+    --transition-glow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 120 100% 85%;
+    --primary: 120 100% 50%;
+    --accent: 320 100% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron;
+  }
+}
+
+@layer components {
+  /* Subtle Static Animations */
+  .animate-matrix-fade {
+    animation: matrixFade 1s ease-out forwards;
+  }
+
+  .animate-glitch {
+    animation: none; /* Remove glitch animation */
+  }
+
+  .animate-neon-pulse {
+    animation: none; /* Remove neon pulse animation */
+  }
+
+  .animate-float-slow {
+    animation: none; /* Remove float animation */
+  }
+
+  /* Turquoise Backgrounds */
+  .bg-gradient-turquoise {
+    background: var(--gradient-turquoise);
+  }
+
+  .bg-gradient-neon {
+    background: var(--gradient-neon);
+  }
+
+  .bg-gradient-cyber {
+    background: var(--gradient-cyber);
+  }
+
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  /* Turquoise Effects */
+  .glow-turquoise {
+    box-shadow: var(--glow-turquoise);
+  }
+
+  .glow-neon {
+    box-shadow: var(--glow-neon);
+  }
+
+  .glow-cyber {
+    box-shadow: var(--glow-cyber);
+  }
+
+  /* Interactive Elements */
+  .hover-turquoise {
+    @apply transition-all duration-300 ease-out hover:glow-turquoise hover:text-primary;
+  }
+
+  .hover-neon {
+    @apply transition-all duration-300 ease-out hover:glow-neon hover:text-accent;
+  }
+
+  .cyber-border {
+    @apply border border-primary/50 hover:border-primary hover:glow-turquoise transition-all duration-300 ease-out;
+  }
+
+  .transition-glow {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .turquoise-text {
+    @apply text-primary font-mono tracking-wider;
+  }
+
+  .neon-text {
+    @apply text-accent font-orbitron tracking-wide;
+  }
+
+  /* Code Block Style */
+  .code-block {
+    @apply bg-muted border border-primary/30 rounded-lg p-4 font-mono text-sm;
+    background: linear-gradient(45deg, hsl(220 20% 12%), hsl(220 20% 8%));
+  }
+}
+
+@keyframes matrixFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-2px) scaleX(0.98); }
+  20% { transform: translateX(2px) scaleX(1.02); }
+  30% { transform: translateX(-1px) scaleX(0.99); }
+  40% { transform: translateX(1px) scaleX(1.01); }
+  50% { transform: translateX(0); }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+@keyframes skillLoad {
+  0% {
+    width: 0%;
+    box-shadow: 0 0 10px hsl(180 100% 50% / 0.3);
+  }
+  100% {
+    width: var(--skill-width);
+    box-shadow: 0 0 20px hsl(180 100% 50% / 0.6);
+  }
+}
